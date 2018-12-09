@@ -1,5 +1,4 @@
 ThisBuild / organization := "io.github.yangzai"
-ThisBuild / version := "0.1.0-SNAPSHOT"
 
 ThisBuild / scalaVersion := "2.12.8"
 ThisBuild / crossScalaVersions += "2.11.12"
@@ -20,3 +19,23 @@ lazy val root = project in file(".") aggregate(core, contrib) dependsOn core set
 
 useGpg := true
 ThisBuild / publishTo := sonatypePublishTo.value
+
+import ReleaseTransformations._
+
+releaseCrossBuild := true
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  releaseStepCommandAndRemaining("+publishSigned"),
+  setNextVersion,
+  commitNextVersion,
+  releaseStepCommand("sonatypeReleaseAll"),
+  pushChanges
+)
+
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
