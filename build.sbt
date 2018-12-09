@@ -36,5 +36,3 @@ releaseProcess := Seq[ReleaseStep](
   releaseStepCommand("sonatypeReleaseAll"),
   pushChanges
 )
-
-releasePublishArtifactsAction := PgpKeys.publishSigned.value
