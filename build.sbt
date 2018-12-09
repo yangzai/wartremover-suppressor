@@ -17,8 +17,6 @@ lazy val root = project in file(".") aggregate(core, contrib) dependsOn core set
   name := "wartremover-suppressor"
 )
 
-ThisBuild / publishTo := sonatypePublishTo.value
-
 import ReleaseTransformations._
 
 releaseCrossBuild := true
