@@ -17,7 +17,6 @@ lazy val root = project in file(".") aggregate(core, contrib) dependsOn core set
   name := "wartremover-suppressor"
 )
 
-useGpg := true
 ThisBuild / publishTo := sonatypePublishTo.value
 
 import ReleaseTransformations._
