@@ -14,7 +14,7 @@ object Wart {
   final val Equals = prefix + "Equals"
   final val ExplicitImplicitTypes = prefix + "ExplicitImplicitTypes"
   final val FinalCaseClass = prefix + "FinalCaseClass"
-  final val FinalVal = prefix + "FinalVal"
+  final val FinalVal = "org.wartremover.warts.FinalVal" //used in current module
   final val ForbidInference = prefix + "ForbidInference"
   final val ImplicitConversion = prefix + "ImplicitConversion"
   final val ImplicitParameter = prefix + "ImplicitParameter"

@@ -2,20 +2,20 @@
 
 ## Concise and typesafe annotation constants for suppressing warnings from [WartRemover](https://github.com/wartremover/wartremover)
 
+|Suppressor|WartRemover|Contrib|
+|----------|-----------|-------|
+|0.1.0     |2.7.3      |1.2.4  |
+
+
 ### SBT Setup
 If only the standard `Warts` are required:
 ```scala
-libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor-core" % "2.3.7-SNAPSHOT"
+libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor" % "0.1.0"
 ```
 
-If only the `ContribWarts` are required:
+If `ContribWarts` are also required:
 ```scala
-libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor-contrib" % "1.2.4-SNAPSHOT"
-```
-
-Otherwise, if both are required:
-```scala
-libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor" % "0.1.0-SNAPSHOT"
+libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor-contrib" % "0.1.0"
 ```
 
 ### Example

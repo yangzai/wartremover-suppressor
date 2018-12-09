@@ -143,4 +143,5 @@ fabric.properties
 .idea/httpRequests
 
 # Project Specific
-.idea
+/.idea
+/sonatype.sbt
