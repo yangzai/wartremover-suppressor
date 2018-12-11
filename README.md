@@ -6,16 +6,22 @@
 |----------|-----------|-------|
 |0.1.0     |2.7.3      |1.2.4  |
 
-
 ### SBT Setup
-If only the standard `Warts` are required:
+Ideally, there is is no need to include the suppressor as a runtime dependency.
+Below shows how the scope can be restricted to compile-time only.
+Otherwise, `Provided` scope is good enough for most cases.
 ```scala
-libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor" % "0.1.0"
-```
+// CompileOnly hack - like Provided, but doesn't show on POM
+// Reference: https://github.com/sbt/sbt/issues/2503
+val CompileOnly = config("compile-only").hide
+ivyConfigurations += CompileOnly
+unmanagedClasspath in Compile ++= update.value select configurationFilter(CompileOnly.name)
 
-If `ContribWarts` are also required:
-```scala
-libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor-contrib" % "0.1.0"
+// If only the standard Warts are required
+libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor" % "0.1.0" % CompileOnly
+
+// If ContribWarts are also required
+libraryDependencies += "io.github.yangzai" %% "wartremover-suppressor-contrib" % "0.1.0" % CompileOnly
 ```
 
 ### Example
